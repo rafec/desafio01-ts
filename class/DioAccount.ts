@@ -22,14 +22,21 @@ export abstract class DioAccount {
     if (this.validateStatus()) {
       this.balance += depositValue;
       console.log(
-        `You have deposited ${depositValue}. You new balance now is ${this.balance}`
+        `You have deposited ${depositValue}. Your new balance now is ${this.balance}`
       );
     }
   };
 
   withdraw = (withdrawValue: number): void => {
-    if (this.validateStatus()) {
-      console.log("Voce sacou");
+    if (this.validateStatus() && this.balance >= withdrawValue) {
+      this.balance -= withdrawValue;
+      console.log(
+        `You have withdrawed ${withdrawValue}. Your new balance now is ${this.balance}`
+      );
+    } else {
+      console.log(
+        `Failed to withdraw! Please contact your bank!\n[Actual balance: ${this.balance}]`
+      );
     }
   };
 

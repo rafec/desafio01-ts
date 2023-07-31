@@ -12,4 +12,6 @@ companyAccount.deposit(130);
 companyAccount.withdraw(130);
 companyAccount.withdraw(130);
 companyAccount.deposit(15);
+companyAccount.getLoan(15);
+companyAccount.withdraw(10);
 console.log(companyAccount);

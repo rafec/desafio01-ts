@@ -19,7 +19,7 @@ export abstract class DioAccount {
   };
 
   deposit = (depositValue: number): void => {
-    if (this.validateStatus()) {
+    if (this.getStatus()) {
       this.balance += depositValue;
       console.log(
         `You have deposited ${depositValue}. Your new balance now is ${this.balance}`
@@ -28,7 +28,7 @@ export abstract class DioAccount {
   };
 
   withdraw = (withdrawValue: number): void => {
-    if (this.validateStatus() && this.balance >= withdrawValue) {
+    if (this.getStatus() && this.balance >= withdrawValue) {
       this.balance -= withdrawValue;
       console.log(
         `You have withdrawed ${withdrawValue}. Your new balance now is ${this.balance}`
@@ -50,5 +50,9 @@ export abstract class DioAccount {
     }
 
     throw new Error("Conta inválida");
+  };
+
+  getStatus = (): boolean => {
+    return this.validateStatus();
   };
 }

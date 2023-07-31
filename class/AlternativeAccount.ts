@@ -6,10 +6,11 @@ export class AlternativeAccount extends DioAccount {
   }
 
   deposit = (depositValue: number): void => {
+    let balance = this.getBalance();
     if (this.getStatus()) {
-      this.balance += depositValue + 10;
+      this.setBalance((balance += depositValue + 10));
       console.log(
-        `You have deposited ${depositValue}. Your new balance now is ${this.balance}`
+        `You have deposited ${depositValue}. Your new balance now is ${balance}`
       );
     }
   };

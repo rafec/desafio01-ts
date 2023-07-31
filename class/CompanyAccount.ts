@@ -6,10 +6,11 @@ export class CompanyAccount extends DioAccount {
   }
 
   getLoan = (loanValue: number): void => {
+    let balance = this.getBalance();
     if (this.getStatus()) {
-      this.balance += loanValue;
+      this.setBalance((balance += loanValue));
       console.log(
-        `You got a loan of ${loanValue}. Your new balance now is ${this.balance}`
+        `You got a loan of ${loanValue}. Your new balance now is ${balance}`
       );
     }
   };
